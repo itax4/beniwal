@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Elevate — Restaurant & Bar</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.hero { height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden; }
+.hero-bg { position:absolute; inset:0; background: radial-gradient(ellipse 70% 60% at 50% 60%, rgba(201,168,76,0.07) 0%, transparent 70%), radial-gradient(ellipse 100% 80% at 50% 100%, rgba(201,168,76,0.04) 0%, transparent 60%); }
+.hero-lines { position:absolute; inset:0; background-image:linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px), linear-gradient(90deg,rgba(201,168,76,0.04) 1px, transparent 1px); background-size:80px 80px; mask-image:radial-gradient(ellipse 70% 70% at 50% 50%, black, transparent); }
+.hero-subtitle { font-size:0.6rem; letter-spacing:0.5em; text-transform:uppercase; color:var(--gold); margin-bottom:28px; opacity:0; animation:fadeUp 1s 0.3s forwards; }
+.hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(5rem,13vw,11rem); font-weight:300; line-height:0.85; color:var(--cream); opacity:0; animation:fadeUp 1.2s 0.5s forwards; }
+.hero h1 em { font-style:italic; color:var(--gold-light); }
+.hero-desc { margin-top:32px; font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-muted); opacity:0; animation:fadeUp 1s 0.8s forwards; }
+.hero-cta { margin-top:52px; opacity:0; animation:fadeUp 1s 1.1s forwards; display:flex; gap:20px; align-items:center; }
+.scroll-indicator { position:absolute; bottom:40px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0; animation:fadeUp 1s 1.5s forwards; }
+.scroll-line { width:1px; height:60px; background:linear-gradient(to bottom, var(--gold), transparent); animation:scrollPulse 2s ease-in-out infinite; }
+.scroll-text { font-size:0.5rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--text-muted); }
+@keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+.features { background:var(--dark2); display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid rgba(201,168,76,0.08); border-bottom:1px solid rgba(201,168,76,0.08); }
+.feature { text-align:center; padding:50px 20px; border-right:1px solid rgba(201,168,76,0.08); }
+.feature:last-child { border-right:none; }
+.feature-icon { font-size:1.6rem; margin-bottom:14px; }
+.feature h4 { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:400; margin-bottom:8px; }
+.feature p { font-size:0.65rem; color:var(--text-muted); line-height:1.9; }
+.previews { padding:100px 60px; background:var(--dark); display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
+.preview-card { position:relative; height:460px; background:var(--dark2); display:flex; flex-direction:column; justify-content:flex-end; padding:36px; overflow:hidden; text-decoration:none; color:var(--cream); }
+.preview-card::before { content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(10,8,5,0.92) 0%, transparent 65%); z-index:1; }
+.preview-card-bg { position:absolute; inset:0; z-index:0; display:flex; align-items:center; justify-content:center; font-size:5rem; opacity:0.1; transition:transform 0.6s, opacity 0.4s; }
+.preview-card:hover .preview-card-bg { transform:scale(1.08); opacity:0.18; }
+.preview-card-content { position:relative; z-index:2; }
+.preview-card-label { font-size:0.55rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; display:block; }
+.preview-card h3 { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; margin-bottom:10px; }
+.preview-card p { font-size:0.7rem; color:rgba(245,238,223,0.5); line-height:1.8; margin-bottom:22px; }
+.preview-card-arrow { display:inline-flex; align-items:center; gap:10px; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); transition:gap 0.3s; }
+.preview-card:hover .preview-card-arrow { gap:16px; }
+</style>
+</head>
+<body>
 
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="index.html" class="logo">Ele<span>vate</span></a>
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Reserve</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <span class="hero-subtitle">Restaurant & Bar · Panchkula</span>
+  <h1>Ele<em>vate</em></h1>
+  <p class="hero-desc">Where every evening rises above the ordinary</p>
+  <div class="hero-cta">
+    <a href="contact.html" class="btn-primary">Reserve a Table</a>
+    <a href="menu.html" class="btn-ghost">View Menu</a>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span class="scroll-text">Scroll</span>
+  </div>
+</section>
+
+<div class="features reveal">
+  <div class="feature"><div class="feature-icon">🍽️</div><h4>Multi-Cuisine</h4><p>80+ dishes crafted with<br>global inspiration</p></div>
+  <div class="feature"><div class="feature-icon">🍸</div><h4>Craft Bar</h4><p>40+ handcrafted cocktails<br>& premium spirits</p></div>
+  <div class="feature"><div class="feature-icon">🎵</div><h4>Live Vibes</h4><p>Curated music &<br>DJ nights every weekend</p></div>
+  <div class="feature"><div class="feature-icon">🎉</div><h4>Private Events</h4><p>Birthdays, parties &<br>corporate gatherings</p></div>
+</div>
+
+<div class="previews">
+  <a href="about.html" class="preview-card reveal">
+    <div class="preview-card-bg">🏮</div>
+    <div class="preview-card-content">
+      <span class="preview-card-label">Our Story</span>
+      <h3>About Elevate</h3>
+      <p>Born from a passion for exceptional dining and unforgettable nightlife.</p>
+      <span class="preview-card-arrow">Discover More →</span>
+    </div>
+  </a>
+  <a href="menu.html" class="preview-card reveal">
+    <div class="preview-card-bg">🍜</div>
+    <div class="preview-card-content">
+      <span class="preview-card-label">Culinary Offerings</span>
+      <h3>The Menu</h3>
+      <p>Starters, mains, desserts and a bar that never disappoints.</p>
+      <span class="preview-card-arrow">Explore Menu →</span>
+    </div>
+  </a>
+  <a href="gallery.html" class="preview-card reveal">
+    <div class="preview-card-bg">📸</div>
+    <div class="preview-card-content">
+      <span class="preview-card-label">Ambience & Moments</span>
+      <h3>Gallery</h3>
+      <p>A glimpse into the world we've created inside Elevate.</p>
+      <span class="preview-card-arrow">See Photos →</span>
+    </div>
+  </a>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Elevate</a>
+  <div class="footer-copy">© 2026 Elevate Restaurant & Bar, Panchkula<br>All rights reserved</div>
+  <div class="footer-social">
+    <a href="#" class="social-link">ig</a>
+    <a href="#" class="social-link">fb</a>
+    <a href="#" class="social-link">yt</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gallery — Elevate Restaurant & Bar</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.gallery-wrapper { padding:80px 60px; max-width:1200px; margin:0 auto; }
+.gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:260px; gap:4px; }
+.gallery-cell { background:var(--dark2); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; cursor:pointer; }
+.gallery-cell.wide { grid-column:span 2; }
+.gallery-cell.tall { grid-row:span 2; }
+.gallery-cell::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(201,168,76,0.05),transparent 60%); z-index:1; transition:background 0.4s; }
+.gallery-cell:hover::before { background:rgba(201,168,76,0.12); }
+.gallery-placeholder { display:flex; flex-direction:column; align-items:center; gap:10px; opacity:0.15; }
+.gallery-placeholder span { font-size:3rem; }
+.gallery-placeholder p { font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; }
+.gallery-overlay { position:absolute; inset:0; z-index:2; display:flex; flex-direction:column; justify-content:flex-end; padding:24px; background:linear-gradient(to top,rgba(10,8,5,0.85),transparent 60%); opacity:0; transition:opacity 0.4s; }
+.gallery-cell:hover .gallery-overlay { opacity:1; }
+.gallery-tag { font-size:0.5rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:4px; }
+.gallery-caption { font-family:'Cormorant Garamond',serif; font-size:1.1rem; }
+.insta-strip { background:var(--dark2); padding:80px 60px; text-align:center; }
+.insta-strip h3 { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; margin-bottom:10px; }
+.insta-handle { font-size:0.65rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:40px; display:block; }
+.insta-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:3px; max-width:900px; margin:0 auto; }
+.insta-cell { aspect-ratio:1; background:var(--dark3); display:flex; align-items:center; justify-content:center; font-size:1.2rem; opacity:0.3; transition:opacity 0.3s; }
+.insta-cell:hover { opacity:0.6; }
+</style>
+</head>
+<body>
 
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="index.html" class="logo">Ele<span>vate</span></a>
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Reserve</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-lines"></div>
+  <span class="page-hero-label">Ambience & Moments</span>
+  <h1>The <em>Gallery</em></h1>
+</div>
+
+<div class="gallery-wrapper">
+  <div class="gallery-grid reveal">
+    <div class="gallery-cell wide tall">
+      <div class="gallery-placeholder"><span>🌃</span><p>Main Dining Hall</p></div>
+      <div class="gallery-overlay"><span class="gallery-tag">Interiors</span><span class="gallery-caption">The Main Dining Hall</span></div>
+    </div>
+    <div class="gallery-cell">
+      <div class="gallery-placeholder"><span>🍸</span><p>Bar Counter</p></div>
+      <div class="gallery-overlay"><span class="gallery-tag">Bar</span><span class="gallery-caption">Craft Cocktails</span></div>
+    </div>
+    <div class="gallery-cell">
+      <div class="gallery-placeholder"><span>🍽️</span><p>Plated Dish</p></div>
+      <div class="gallery-overlay"><span class="gallery-tag">Food</span><span class="gallery-caption">Chef's Signature</span></div>
+    </div>
+    <div class="gallery-cell">
+      <div class="gallery-placeholder"><span>🕯️</span><p>Candlelight</p></div>
+      <div class="gallery-overlay"><span class="gallery-tag">Interiors</span><span class="gallery-caption">Evening Ambience</span></div>
+    </div>
+    <div class="gallery-cell">
+      <div class="gallery-placeholder"><span>🎂</span><p>Private Event</p></div>
+      <div class="gallery-overlay"><span class="gallery-tag">Events</span><span class="gallery-caption">Private Celebrations</span></div>
+    </div>
+    <div class="gallery-cell wide">
+      <div class="gallery-placeholder"><span>🥂</span><p>Bar & Lounge</p></div>
+      <div class="gallery-overlay"><span class="gallery-tag">Bar</span><span class="gallery-caption">The Lounge</span></div>
+    </div>
+    <div class="gallery-cell">
+      <div class="gallery-placeholder"><span>👨‍🍳</span><p>Open Kitchen</p></div>
+      <div class="gallery-overlay"><span class="gallery-tag">Food</span><span class="gallery-caption">Behind the Pass</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="insta-strip reveal">
+  <h3>Follow Our <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-light)">Journey</em></h3>
+  <span class="insta-handle">@elevate.panchkula</span>
+  <div class="insta-grid">
+    <div class="insta-cell">🍸</div>
+    <div class="insta-cell">🌃</div>
+    <div class="insta-cell">🍽️</div>
+    <div class="insta-cell">🥂</div>
+    <div class="insta-cell">🕯️</div>
+    <div class="insta-cell">👨‍🍳</div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Elevate</a>
+  <div class="footer-copy">© 2026 Elevate Restaurant & Bar, Panchkula<br>All rights reserved</div>
+  <div class="footer-social">
+    <a href="#" class="social-link">ig</a>
+    <a href="#" class="social-link">fb</a>
+    <a href="#" class="social-link">yt</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
