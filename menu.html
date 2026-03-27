@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Menu — Elevate Restaurant & Bar</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.menu-wrapper { padding:80px 60px; max-width:1100px; margin:0 auto; }
+.menu-categories { display:flex; justify-content:center; gap:4px; margin-bottom:60px; flex-wrap:wrap; }
+.cat-btn { background:none; border:1px solid rgba(201,168,76,0.2); color:var(--text-muted); font-family:'Montserrat',sans-serif; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; padding:12px 28px; cursor:pointer; transition:all 0.3s; }
+.cat-btn.active, .cat-btn:hover { background:var(--gold); border-color:var(--gold); color:var(--dark); }
+.menu-section { display:none; }
+.menu-section.active { display:block; }
+.menu-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-bottom:60px; }
+.menu-item { padding:28px 32px; background:var(--dark2); display:flex; justify-content:space-between; align-items:flex-start; gap:20px; transition:background 0.3s; }
+.menu-item:hover { background:var(--dark3); }
+.item-info h4 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; margin-bottom:6px; }
+.item-info p { font-size:0.65rem; color:var(--text-muted); line-height:1.7; }
+.item-badge { display:inline-block; font-size:0.45rem; letter-spacing:0.15em; text-transform:uppercase; padding:3px 8px; border:1px solid var(--gold); color:var(--gold); margin-top:6px; }
+.item-price { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--gold); white-space:nowrap; margin-top:2px; }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="index.html" class="logo">Ele<span>vate</span></a>
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Reserve</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-lines"></div>
+  <span class="page-hero-label">Culinary Offerings</span>
+  <h1>The <em>Menu</em></h1>
+</div>
+
+<div class="menu-wrapper">
+  <div class="menu-categories reveal">
+    <button class="cat-btn active" onclick="showMenu('starters',this)">Starters</button>
+    <button class="cat-btn" onclick="showMenu('mains',this)">Mains</button>
+    <button class="cat-btn" onclick="showMenu('bar',this)">Bar & Spirits</button>
+    <button class="cat-btn" onclick="showMenu('desserts',this)">Desserts</button>
+  </div>
+
+  <div class="menu-section active" id="menu-starters">
+    <div class="menu-grid">
+      <div class="menu-item"><div class="item-info"><h4>Burrata & Heirloom Tomato</h4><p>Fresh burrata, slow-roasted cherry tomatoes, basil oil, aged balsamic</p><span class="item-badge">Vegetarian</span></div><div class="item-price">₹680</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Chilli Chicken Crisp</h4><p>Szechuan-glazed chicken, micro herbs, sesame, sriracha aioli</p></div><div class="item-price">₹620</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Smoked Salmon Bruschetta</h4><p>Sourdough, cream cheese, capers, lemon zest, dill</p></div><div class="item-price">₹720</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Truffle Arancini</h4><p>Crispy risotto balls, parmesan, black truffle, romesco sauce</p><span class="item-badge">Chef's Pick</span></div><div class="item-price">₹590</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Garlic Prawn Skewers</h4><p>Tiger prawns, chimichurri, charred lemon, house bread</p></div><div class="item-price">₹850</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Mezze Platter</h4><p>Hummus, baba ganoush, olives, pita, pickled vegetables</p><span class="item-badge">Vegetarian</span></div><div class="item-price">₹750</div></div>
+    </div>
+  </div>
+
+  <div class="menu-section" id="menu-mains">
+    <div class="menu-grid">
+      <div class="menu-item"><div class="item-info"><h4>Pan-Seared Lamb Chops</h4><p>Herb crust, rosemary jus, roasted root vegetables, pomme purée</p><span class="item-badge">Chef's Pick</span></div><div class="item-price">₹1,490</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Rogan Josh Royale</h4><p>Slow-braised lamb, aromatic Kashmiri spices, saffron basmati</p></div><div class="item-price">₹980</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Grilled Sea Bass</h4><p>Lemon beurre blanc, caponata, wilted spinach, confit potato</p></div><div class="item-price">₹1,250</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Truffle Mushroom Risotto</h4><p>Arborio, porcini, black truffle oil, parmesan crisp</p><span class="item-badge">Vegetarian</span></div><div class="item-price">₹890</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Butter Chicken Redefined</h4><p>Tandoori chicken, velvet tomato gravy, house-made naan</p></div><div class="item-price">₹920</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Elevate Signature Burger</h4><p>Double smash patty, aged cheddar, truffle mayo, brioche</p></div><div class="item-price">₹780</div></div>
+    </div>
+  </div>
+
+  <div class="menu-section" id="menu-bar">
+    <div class="menu-grid">
+      <div class="menu-item"><div class="item-info"><h4>Elevate Negroni</h4><p>Aged gin, Campari, sweet vermouth, expressed orange peel</p><span class="item-badge">Signature</span></div><div class="item-price">₹650</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Gold Rush</h4><p>Bourbon, honey syrup, fresh lemon, smoked rosemary</p></div><div class="item-price">₹720</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Midnight Espresso</h4><p>Vodka, cold brew, vanilla, coffee liqueur, foam</p></div><div class="item-price">₹680</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Tricity Mule</h4><p>House ginger beer, premium vodka, lime, cucumber</p></div><div class="item-price">₹580</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Single Malt Selection</h4><p>Glenfiddich 12, Glenlivet, Macallan · ask for current list</p></div><div class="item-price">₹900+</div></div>
+      <div class="menu-item"><div class="item-info"><h4>The Sober Ritual</h4><p>Hibiscus, elderflower, tonic, citrus, edible flower</p><span class="item-badge">Non-Alcoholic</span></div><div class="item-price">₹380</div></div>
+    </div>
+  </div>
+
+  <div class="menu-section" id="menu-desserts">
+    <div class="menu-grid">
+      <div class="menu-item"><div class="item-info"><h4>Dark Chocolate Fondant</h4><p>72% Valrhona, vanilla bean ice cream, gold leaf</p><span class="item-badge">Chef's Pick</span></div><div class="item-price">₹520</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Saffron Panna Cotta</h4><p>Kesar panna cotta, pistachio crumb, rose gel</p></div><div class="item-price">₹480</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Gulab Jamun Brûlée</h4><p>Classic mithai meets French technique, cardamom cream</p></div><div class="item-price">₹440</div></div>
+      <div class="menu-item"><div class="item-info"><h4>Tiramisu Elevate</h4><p>Mascarpone, espresso-soaked ladyfinger, dark cocoa dust</p></div><div class="item-price">₹500</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Elevate</a>
+  <div class="footer-copy">© 2026 Elevate Restaurant & Bar, Panchkula<br>All rights reserved</div>
+  <div class="footer-social">
+    <a href="#" class="social-link">ig</a>
+    <a href="#" class="social-link">fb</a>
+    <a href="#" class="social-link">yt</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+function showMenu(cat, btn) {
+  document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('menu-' + cat).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
